@@ -1,0 +1,12 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.inner-body {
+  text-align: left;
+  width: 50%;
+  margin: 0 auto;
+}
