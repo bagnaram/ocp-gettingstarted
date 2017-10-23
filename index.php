@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 // Create and configure Slim app
 $config = ['settings' => [
     'addContentLengthHeader' => false,
-    'displayErrorDetails' => true,
+    'displayErrorDetails'    => true,
 ]];
 $app = new \Slim\App($config);
 
@@ -15,22 +15,23 @@ $container['view'] = new \Slim\Views\Twig("templates/");
 
 // Data
 
+$data             = array();
 $data['mainmenu'] = array(
   array(
-    'title' => 'Home',
-    'url'	  => '/'
+    'title'    => 'Home',
+    'url'      => '/'
   ),
   array(
-    'title' => 'LDAP Demo',
-    'url'	  => '/ldap'
+    'title'    => 'LDAP Demo',
+    'url'      => '/ldap'
   ),
 	array(
-    'title' => 'About',
-    'url'	  => '/about'
+    'title'    => 'About',
+    'url'      => '/about'
   ),
   array(
-    'title' => 'Contact',
-    'url'	  => '/contact'
+    'title'    => 'Contact',
+    'url'      => '/contact'
   ),
 );
 
@@ -72,7 +73,7 @@ $app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
 #  echo $info["count"]." entries returned\n";
 
-  $data['query'] = $query;
+  $data['query']     = $query;
   $data['resultset'] = $info;
   return $this->view->render($response, 'ldapsearch.html', $data);
 })->setName('ldap');
