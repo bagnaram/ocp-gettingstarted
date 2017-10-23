@@ -12,8 +12,31 @@ $app = new \Slim\App($config);
 $container = $app->getContainer();
 $container['view'] = new \Slim\Views\Twig("templates/");
 
+
+// Data
+i
+$data['current_url'] = $app->request->getResourceURI();
+$data['mainmenu'] = array(
+  array(
+    'title' => 'Home',
+    'url'	  => '/'
+  ),
+  array(
+    'title' => 'LDAP Demo',
+    'url'	  => '/ldap'
+  ),
+	array(
+    'title' => 'About',
+    'url'	  => '/about'
+  ),
+  array(
+    'title' => 'Contact',
+    'url'	  => '/contact'
+  ),
+);
+
 $app->get('/home', function ($request, $response, $args) {
-  return $this->view->render($response, "home.html");
+  return $this->view->render($response, "home.html", $data);
 })->setName('homepage');
 
 
@@ -45,11 +68,9 @@ $app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
 #  echo $info["count"]." entries returned\n";
 
-
-  return $this->view->render($response, 'ldapsearch.html', [
-      'query' => $query,
-      'resultset' => $info
-  ]);
+  $data['query'] = $query
+  $data['resultset'] = $info
+  return $this->view->render($response, 'ldapsearch.html', $data);
 })->setName('ldap');
 
 
