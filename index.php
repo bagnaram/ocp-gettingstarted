@@ -10,7 +10,7 @@ $config = ['settings' => [
 $app = new \Slim\App($config);
 
 $container = $app->getContainer();
-$container['view'] = new \Slim\Views\PhpRenderer("templates/");
+$container['view'] = new \Slim\Views\Twig("templates/");
 
 $app->get('/home', function ($request, $response, $args) {
   return $this->view->render($response, "home.html");
@@ -23,7 +23,7 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
 
   // $person is all or part of a person's name, eg "Jo"
 
-  $ds = "ldap://ldap01.intranet.prod.int.rdu2.redhat.com/";
+  $ds = "ldap01.intranet.prod.int.rdu2.redhat.com";
   $dn = "dc=redhat,dc=com";
 
   $query = $args['query'];
