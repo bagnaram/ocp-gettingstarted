@@ -9,6 +9,8 @@ $config = ['settings' => [
 ]];
 $app = new \Slim\App($config);
 
+$container['view'] = new \Slim\Views\PhpRenderer("../templates/");
+
 $app->get('/home', function ($request, $response, $args) {
   return $this->view->render($response, "home.html");
 })->setName('homepage');
