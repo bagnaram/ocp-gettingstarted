@@ -43,22 +43,22 @@ $app->add(function ($request, $response, $next) use ($data) {
 });
 
 $app->get('/', function ($request, $response, $args) use ($data) {
-  $data['current_url'] = '/'
+  $data['current_url'] = '/';
   return $this->view->render($response, 'home.html', $data);
 })->setName('homepage');
 
 $app->get('/contact', function ($request, $response, $args) use ($data) {
-  $data['current_url'] = '/contact'
+  $data['current_url'] = '/contact';
   return $this->view->render($response, 'contact.html', $data);
 })->setName('contact');
 
 $app->get('/about', function ($request, $response, $args) use ($data) {
-  $data['current_url'] = '/about'
+  $data['current_url'] = '/about';
   return $this->view->render($response, 'about.html', $data);
 })->setName('about');
 
 $app->get('/ldap[/{query}]', function ($request, $response, $args) use ($data) {
-  $data['current_url'] = '/ldap'
+  $data['current_url'] = '/ldap';
 
   // $ds is a valid link identifier for a directory server
 
