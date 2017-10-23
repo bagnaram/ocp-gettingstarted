@@ -9,11 +9,11 @@ $config = ['settings' => [
 ]];
 $app = new App($config);
 
-$app->get('/home/', function ($request, $response, $args) {
+$app->get('/home', function ($request, $response, $args) {
   return $this->view->render($response, 'home.html', [
-      'current' => 'home'
+      'current' => "home"
   ]);
-})->setName('current');
+})->setName('homepage');
 
 
 $app->get('/ldap/{query}', function ($request, $response, $args) {
