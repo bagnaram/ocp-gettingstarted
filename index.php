@@ -1,13 +1,13 @@
 <?php
 require 'vendor/autoload.php';
-use \Slim\App;
+#use \Slim\App;
 
 // Create and configure Slim app
 $config = ['settings' => [
     'addContentLengthHeader' => false,
     'displayErrorDetails' => true
 ]];
-$app = new App($config);
+$app = new \Slim\App($config);
 
 $app->get('/home', function ($request, $response, $args) {
   return $this->view->render($response, "home.html");
