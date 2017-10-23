@@ -34,10 +34,8 @@ $data['mainmenu'] = array(
   ),
 );
 
-$app->add(function (ServerRequestInterface $request, ResponseInterface $response, callable $next) {
-    // Use the PSR 7 $request object
+$app->add(function ($request, $response, $next) {
     $data['current_url'] = $request->getPath();
-
     return $next($request, $response);
 });
 
