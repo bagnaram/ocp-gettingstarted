@@ -34,7 +34,7 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
 
   $sr=ldap_search($ldapconnection, $basedn, $filter, $justthese);
 
-  $info = ldap_get_entries($ds, $sr);
+  $info = ldap_get_entries($ldapconnection, $sr);
 
 #  echo $info["count"]." entries returned\n";
 
