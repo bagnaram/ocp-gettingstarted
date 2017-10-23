@@ -7,11 +7,6 @@ $config = ['settings' => [
     'addContentLengthHeader' => false,
     'displayErrorDetails'    => true,
 ]];
-$app = new \Slim\App($config);
-
-$container = $app->getContainer();
-$container['view'] = new \Slim\Views\Twig("templates/");
-
 
 // Data
 
@@ -34,6 +29,13 @@ $data['mainmenu'] = array(
     'url'      => '/contact'
   ),
 );
+
+$app = new \Slim\App($config);
+
+$container = $app->getContainer();
+$container['view'] = new \Slim\Views\Twig("templates/");
+
+
 
 $app->add(function ($request, $response, $next) {
     $data['current_url'] = $request->getURI()->getPath();
