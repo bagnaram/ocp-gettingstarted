@@ -25,7 +25,7 @@ $data['mainmenu'] = array(
     'title'    => 'LDAP Demo',
     'url'      => '/ldap'
   ),
-	array(
+  array(
     'title'    => 'About',
     'url'      => '/about'
   ),
@@ -41,7 +41,7 @@ $app->add(function ($request, $response, $next) {
 });
 
 $app->get('/', function ($request, $response, $args) {
-  return $this->view->render($response, "home.html", $data);
+  return $this->view->render($response, 'home.html', $data);
 })->setName('homepage');
 
 
