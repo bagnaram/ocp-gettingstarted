@@ -24,7 +24,7 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
   $ds = "ldap://ldap01.intranet.prod.int.rdu2.redhat.com/";
   $dn = "dc=redhat,dc=com";
 
-  $query = $args['query']
+  $query = $args['query'];
   $filter="(|(sn=$query*)(givenname=$query*))";
   $justthese = array("ou", "sn", "givenname", "mail");
 
