@@ -2,5 +2,8 @@
     "require": {
         "slim/slim": "3.*"
     }
+    "require-dev": {
+        "phpmd/phpmd" : "@stable"
+    }
 }
 

@@ -5,10 +5,11 @@ use \Slim\App;
 // Create and configure Slim app
 $config = ['settings' => [
     'addContentLengthHeader' => false,
+    'displayErrorDetails' => true
 ]];
 $app = new App($config);
 
-$app->get('/', function ($request, $response, $args) {
+$app->get('/home/', function ($request, $response, $args) {
   return $this->view->render($response, 'home.html', [
       'current' => 'home'
   ]);
