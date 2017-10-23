@@ -10,9 +10,7 @@ $config = ['settings' => [
 $app = new App($config);
 
 $app->get('/home', function ($request, $response, $args) {
-  return $this->view->render($response, 'home.html', [
-      'current' => "home"
-  ]);
+  return $this->view->render($response, "home.html");
 })->setName('homepage');
 
 
