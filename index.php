@@ -14,7 +14,7 @@ $container['view'] = new \Slim\Views\Twig("templates/");
 
 
 // Data
-i
+
 $data['current_url'] = $app->request->getResourceURI();
 $data['mainmenu'] = array(
   array(
