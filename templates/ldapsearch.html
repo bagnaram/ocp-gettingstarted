@@ -49,14 +49,16 @@
 
       <div class="starter-template">
         <h1>LDAP Demo</h1>
-        <form>
-          <div class="form-group">
-            <label for="ldapQuery">LDAP query</label>
-            <input type="text" class="form-control" id="ldapQuery" placeholder="{{ query }}">
-          <a id="ldapQueryBtn" class="btn btn-primary">Submit</a>
-        </form>
 
-{% if resultset %}
+        <div class="input-group">
+	  <input type="text" class="form-control" id="ldapQuery" placeholder="Search for..." value="{{ query }}">
+	  <span class="input-group-btn">
+	    <button id="ldapQueryBtn" class="btn btn-secondary" type="button">Go!</button>
+	  </span>
+	</div>
+
+
+{% if resultset is not empty %}
         <div class="panel panel-default">
           <div class="panel-heading">Red Hat Team</div>
           <div class="panel-body">
