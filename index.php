@@ -6,17 +6,16 @@ require 'vendor/autoload.php';
 $config = ['settings' => [
     'addContentLengthHeader' => false,
     'displayErrorDetails' => true,
-    'view' => new \Slim\Views\Twig("templates/")
 ]];
 $app = new \Slim\App($config);
 
 $container = $app->getContainer();
-#$container['view'] = new \Slim\Views\Twig("templates/");
+$container['view'] = new \Slim\Views\Twig("templates/");
 
 
 // Data
 
-$data['current_url'] = $app->request->getResourceURI();
+$data['current_url'] = $app->request->getPath();
 $data['mainmenu'] = array(
   array(
     'title' => 'Home',
