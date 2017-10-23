@@ -17,7 +17,7 @@ $app->get('/home', function ($request, $response, $args) {
 })->setName('homepage');
 
 
-$app->get('/ldap/{query}', function ($request, $response, $args) {
+$app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
   // $ds is a valid link identifier for a directory server
 
@@ -28,7 +28,14 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
 
   $basedn = "dc=redhat,dc=com";
 
-  $query = $args['query'];
+  if($args['query'])
+  {
+    $query = $args['query'];
+  }
+  else
+  {
+    $query = "";
+  }
   $filter="(|(sn=$query*)(givenname=$query*))";
   $justthese = array("ou", "sn", "givenname", "mail");
 
