@@ -35,7 +35,7 @@ $data['mainmenu'] = array(
 );
 
 $app->add(function ($request, $response, $next) {
-    $data['current_url'] = $request->->getURI()->getPath();
+    $data['current_url'] = $request->getURI()->getPath();
     return $next($request, $response);
 });
 
