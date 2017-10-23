@@ -21,7 +21,7 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
 
   // $person is all or part of a person's name, eg "Jo"
 
-  $ds = "ldap://ldap01.intranet.prod.int.rdu2.redhat.com/"
+  $ds = "ldap://ldap01.intranet.prod.int.rdu2.redhat.com/";
   $dn = "dc=redhat,dc=com";
 
   $query = $args['query']
