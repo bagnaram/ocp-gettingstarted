@@ -68,8 +68,8 @@ $app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
 #  echo $info["count"]." entries returned\n";
 
-  $data['query'] = $query
-  $data['resultset'] = $info
+  $data['query'] = $query;
+  $data['resultset'] = $info;
   return $this->view->render($response, 'ldapsearch.html', $data);
 })->setName('ldap');
 
