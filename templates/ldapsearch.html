@@ -36,6 +36,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+{{ curent_url }}
             {% for menu in mainmenu %}
             <li{% if current_url starts with menu.url %} class="active"{% endif %}><a href="{{ menu.url }}">{{ menu.title }}</a></li>
             {% endfor %}

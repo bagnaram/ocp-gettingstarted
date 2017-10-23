@@ -14,7 +14,7 @@ $data             = array();
 $data['mainmenu'] = array(
   array(
     'title'    => 'Home',
-    'url'      => '/home'
+    'url'      => '/'
   ),
   array(
     'title'    => 'LDAP Demo',
