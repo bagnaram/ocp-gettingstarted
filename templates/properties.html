@@ -54,14 +54,12 @@
             </tr>
           </thead>
           <tbody>
-            {% for key, value in vars %}
+{% for key, value in vars %}
             <tr>
-              <td>{{ key }}</td>
+              <td><pre>{{ key }}</pre></td>
+              <td><pre>{{ value }}</pre></td>
             </tr>
-            <tr>
-              <td>{{ value }}</td>
-            </tr>
-            {% endfor %}
+{% endfor %}
           </tbody>
         </table>
 
