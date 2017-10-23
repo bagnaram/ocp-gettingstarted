@@ -64,6 +64,7 @@ $app->get('/about', function ($request, $response, $args) use ($data) {
 $app->get('/properties', function ($request, $response, $args) use ($data) {
   $data['current_url'] = '/properties';
   $data['vars'] = $_SERVER;
+  $data['env'] = $_ENV;
   return $this->view->render($response, 'properties.html', $data);
 })->setName('properties');
 
