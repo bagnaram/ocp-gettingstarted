@@ -15,7 +15,6 @@ $container['view'] = new \Slim\Views\Twig("templates/");
 
 // Data
 
-$data['current_url'] = $app->request->getPath();
 $data['mainmenu'] = array(
   array(
     'title' => 'Home',
@@ -34,6 +33,13 @@ $data['mainmenu'] = array(
     'url'	  => '/contact'
   ),
 );
+
+$app->add(function (ServerRequestInterface $request, ResponseInterface $response, callable $next) {
+    // Use the PSR 7 $request object
+    $data['current_url'] = $app->request->getPath();
+
+    return $next($request, $response);
+});
 
 $app->get('/', function ($request, $response, $args) {
   return $this->view->render($response, "home.html", $data);
