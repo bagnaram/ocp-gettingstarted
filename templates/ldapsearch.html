@@ -56,9 +56,9 @@
 	    <button id="ldapQueryBtn" class="btn btn-secondary" type="button">Go!</button>
 	  </span>
 	</div>
+        <br>
 
-
-{% if resultset is not empty %}
+{% if resultset|length > 0 %}
         <div class="panel panel-default">
           <div class="panel-heading">Red Hat Team</div>
           <div class="panel-body">
