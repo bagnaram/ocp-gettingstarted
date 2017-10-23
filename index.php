@@ -28,7 +28,7 @@ $app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
   $basedn = "dc=redhat,dc=com";
 
-  if($args['query'] && $query != "")
+  if($args['query'] && $args['query'] != "")
   {
     $query = $args['query'];
   }
