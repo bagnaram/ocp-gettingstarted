@@ -25,6 +25,10 @@ $data['mainmenu'] = array(
     'url'      => '/about'
   ),
   array(
+    'title'    => 'Properties',
+    'url'      => '/properties'
+  ),
+  array(
     'title'    => 'Contact',
     'url'      => '/contact'
   ),
@@ -56,6 +60,12 @@ $app->get('/about', function ($request, $response, $args) use ($data) {
   $data['current_url'] = '/about';
   return $this->view->render($response, 'about.html', $data);
 })->setName('about');
+
+$app->get('/properties', function ($request, $response, $args) use ($data) {
+  $data['current_url'] = '/properties';
+  $data['vars'] = $_SERVER;
+  return $this->view->render($response, 'properties.html', $data);
+})->setName('properties');
 
 $app->get('/ldap[/{query}]', function ($request, $response, $args) use ($data) {
   $data['current_url'] = '/ldap';
