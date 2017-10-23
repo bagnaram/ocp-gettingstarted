@@ -42,12 +42,12 @@ $app->add(function ($request, $response, $next) {
     return $next($request, $response);
 });
 
-$app->get('/', function ($request, $response, $args) {
+$app->get('/', function ($request, $response, $args, $data) {
   return $this->view->render($response, 'home.html', $data);
 })->setName('homepage');
 
 
-$app->get('/ldap/[{query}]', function ($request, $response, $args) {
+$app->get('/ldap/[{query}]', function ($request, $response, $args, $data) {
 
   // $ds is a valid link identifier for a directory server
 
