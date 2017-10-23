@@ -9,6 +9,7 @@ $config = ['settings' => [
 ]];
 $app = new \Slim\App($config);
 
+$container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer("templates/");
 
 $app->get('/home', function ($request, $response, $args) {
