@@ -37,7 +37,7 @@ $container['view'] = new \Slim\Views\Twig("templates/");
 
 
 
-$app->add(function ($request, $response, $next) {
+$app->add(function ($request, $response, $next) use ($data) {
     $data['current_url'] = $request->getURI()->getPath();
     return $next($request, $response);
 });
