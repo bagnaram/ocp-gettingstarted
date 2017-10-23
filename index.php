@@ -23,14 +23,16 @@ $app->get('/ldap/{query}', function ($request, $response, $args) {
 
   // $person is all or part of a person's name, eg "Jo"
 
-  $ds = "ldap01.intranet.prod.int.rdu2.redhat.com";
-  $dn = "dc=redhat,dc=com";
+  $ldapserver = "ldap01.intranet.prod.int.rdu2.redhat.com";
+  $ldapconnection = ldap_connect($ldapserver);
+
+  $basedn = "dc=redhat,dc=com";
 
   $query = $args['query'];
   $filter="(|(sn=$query*)(givenname=$query*))";
   $justthese = array("ou", "sn", "givenname", "mail");
 
-  $sr=ldap_search($ds, $dn, $filter, $justthese);
+  $sr=ldap_search($ldapconnection, $basedn, $filter, $justthese);
 
   $info = ldap_get_entries($ds, $sr);
 
