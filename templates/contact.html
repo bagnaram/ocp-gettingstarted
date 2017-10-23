@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
 
-<?php
-?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,9 +36,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li class="active"><a href="#">Contact</a></li>
+            {% for menu in mainmenu %}
+            <li{% if menu.url == curent_url %} class="active"{% endif %}><a href="{{ menu.url }}">{{ menu.title }}</a></li>
+            {% endfor %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
