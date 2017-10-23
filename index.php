@@ -5,12 +5,13 @@ require 'vendor/autoload.php';
 // Create and configure Slim app
 $config = ['settings' => [
     'addContentLengthHeader' => false,
-    'displayErrorDetails' => true
+    'displayErrorDetails' => true,
+    'view' => new \Slim\Views\Twig("templates/")
 ]];
 $app = new \Slim\App($config);
 
 $container = $app->getContainer();
-$container['view'] = new \Slim\Views\Twig("templates/");
+#$container['view'] = new \Slim\Views\Twig("templates/");
 
 
 // Data
@@ -35,7 +36,7 @@ $data['mainmenu'] = array(
   ),
 );
 
-$app->get('/home', function ($request, $response, $args) {
+$app->get('/', function ($request, $response, $args) {
   return $this->view->render($response, "home.html", $data);
 })->setName('homepage');
 
