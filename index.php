@@ -28,13 +28,13 @@ $app->get('/ldap/[{query}]', function ($request, $response, $args) {
 
   $basedn = "dc=redhat,dc=com";
 
-  if($args['query'])
+  if($args['query'] && $query != "")
   {
     $query = $args['query'];
   }
   else
   {
-    $query = "";
+    $query = "Enter query here";
   }
   $filter="(|(sn=$query*)(givenname=$query*))";
   $justthese = array("ou", "sn", "givenname", "mail");
