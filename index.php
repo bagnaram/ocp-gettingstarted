@@ -82,7 +82,7 @@ $app->get('/ldap[/{query}]', function ($request, $response, $args) use ($data) {
 
   if($args['query'] && $args['query'] != "")
   {
-    $query = $args['query'];
+    $query = preg_replace("/[^A-Za-z0-9 ]/", '', $args['query']);
   }
   else
   {
