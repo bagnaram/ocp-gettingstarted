@@ -1,4 +1,10 @@
 {
+    "repositories": [
+        {
+            "type": "artifact",
+            "url": "local-repo/"
+        }
+    ],
     "require": {
         "slim/slim": "3.*",
         "slim/twig-view": "^2.0"
